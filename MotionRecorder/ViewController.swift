@@ -73,6 +73,7 @@ class ViewController: UIViewController {
             fileURL = dir.appendingPathComponent(file)
             print(fileURL.path)
             do {
+                FileManager.default.createFile(atPath: fileURL.path, contents: nil, attributes: nil)
                 let file: FileHandle? = try FileHandle(forWritingTo: fileURL)
                 print("Count: " + String(format:"%i", count))
                 let header = "roll, pitch, yaw, rotation rate X, rotation rate Y, rotation rate Z, user acceleration X, user acceleration Y, user acceleration Z, heading\n"
